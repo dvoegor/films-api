@@ -80,23 +80,38 @@ router.delete('/:id', async (req, res) => {
 // UPDATE
 router.patch('/:id', async (req, res) => {
   try {
-    await Film.updateOne(
-      { _id: req.params.id },
-      {
-        $set: {
-          title: req.body.title,
-          ageRestriction: req.body.ageRestriction,
-          duration: req.body.duration,
-          genres: req.body.genres,
-          releaseDate: req.body.releaseDate,
-          plot: req.body.plot,
-          director: req.body.director,
-          writers: req.body.writers,
-          stars: req.body.stars,
-          scores: req.body.scores
-        }
-      })
     const result = await Film.findById(req.params.id)
+    if (req.body.title != null) {
+      result.title = req.body.title
+    }
+    if (req.body.ageRestriction != null) {
+      result.ageRestriction = req.body.ageRestriction
+    }
+    if (req.body.duration != null) {
+      result.duration = req.body.duration
+    }
+    if (req.body.genres != null) {
+      result.genres = req.body.genres
+    }
+    if (req.body.releaseDate != null) {
+      result.releaseDate = req.body.releaseDate
+    }
+    if (req.body.plot != null) {
+      result.plot = req.body.plot
+    }
+    if (req.body.director != null) {
+      result.director = req.body.director
+    }
+    if (req.body.writers != null) {
+      result.writers = req.body.writers
+    }
+    if (req.body.stars != null) {
+      result.stars = req.body.stars
+    }
+    if (req.body.scores != null) {
+      result.scores = req.body.scores
+    }
+    result.save()
     res.status(200).json(result)
     makeLog(req, res, result)
   } catch (err) {
