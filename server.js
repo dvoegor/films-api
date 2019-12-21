@@ -20,4 +20,4 @@ app.use('/films', filmRouter)
 const logsRouter = require('./routes/logs')
 app.use('/logs', logsRouter)
 
-app.listen(80, () => console.log('Server Started'))
+app.listen(3000, () => console.log('Server Started'))
