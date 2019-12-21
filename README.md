@@ -79,7 +79,7 @@
     - `releaseDate` - дата релиза
     - `plot` - сюжет
     - `director` - режиссер
-    - `writers` - сценарий
+    - `writers` - сценаристы
     - `stars` - актеры
     - `genres` - жанры
     - `scores` - оценки
